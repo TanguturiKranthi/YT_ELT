@@ -2874,3 +2874,12 @@
 [2026-05-01T10:22:36.861+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:22:36.861+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
 [2026-05-01T10:22:36.863+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:22:36.863+0000] {dag.py:3954} INFO - Setting next_dagrun for youtube_video_stats to 2026-04-30 12:00:00+00:00, run_after=2026-05-01 12:00:00+00:00
 [2026-05-01T10:22:36.872+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/api/main.py took 0.139 seconds
+[2026-05-01T10:23:07.166+0000] {processor.py:161} INFO - Started process (PID=2296) to work on /opt/airflow/dags/api/main.py
+[2026-05-01T10:23:07.168+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/api/main.py for tasks to queue
+[2026-05-01T10:23:07.177+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:23:07.176+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/api/main.py
+[2026-05-01T10:23:07.236+0000] {processor.py:840} INFO - DAG(s) 'data_quality', 'update_db', 'youtube_video_stats' retrieved from /opt/airflow/dags/api/main.py
+[2026-05-01T10:23:07.268+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:23:07.268+0000] {dag.py:3096} INFO - Sync 3 DAGs
+[2026-05-01T10:23:07.285+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:23:07.285+0000] {dag.py:3954} INFO - Setting next_dagrun for data_quality to None, run_after=None
+[2026-05-01T10:23:07.287+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:23:07.287+0000] {dag.py:3954} INFO - Setting next_dagrun for update_db to None, run_after=None
+[2026-05-01T10:23:07.289+0000] {logging_mixin.py:188} INFO - [2026-05-01T10:23:07.289+0000] {dag.py:3954} INFO - Setting next_dagrun for youtube_video_stats to 2026-04-30 12:00:00+00:00, run_after=2026-05-01 12:00:00+00:00
+[2026-05-01T10:23:07.298+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/api/main.py took 0.145 seconds
