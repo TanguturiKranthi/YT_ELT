@@ -1,0 +1,17 @@
+[2026-03-07T17:27:46.891+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-07T17:27:46.910+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: youtube_video_stats.get_playlist_id scheduled__2026-03-06T13:00:00+00:00 [queued]>
+[2026-03-07T17:27:46.917+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: youtube_video_stats.get_playlist_id scheduled__2026-03-06T13:00:00+00:00 [queued]>
+[2026-03-07T17:27:46.918+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-07T17:27:46.927+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): get_playlist_id> on 2026-03-06 13:00:00+00:00
+[2026-03-07T17:27:46.930+0000] {standard_task_runner.py:63} INFO - Started process 449 to run task
+[2026-03-07T17:27:46.933+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'youtube_video_stats', 'get_playlist_id', 'scheduled__2026-03-06T13:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/api/main.py', '--cfg-path', '/tmp/tmppbbbqb_u']
+[2026-03-07T17:27:46.933+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask get_playlist_id
+[2026-03-07T17:27:46.979+0000] {task_command.py:426} INFO - Running <TaskInstance: youtube_video_stats.get_playlist_id scheduled__2026-03-06T13:00:00+00:00 [running]> on host 0f6d464e48ad
+[2026-03-07T17:27:47.041+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='tanguturi.kranthi1008@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='youtube_video_stats' AIRFLOW_CTX_TASK_ID='get_playlist_id' AIRFLOW_CTX_EXECUTION_DATE='2026-03-06T13:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-03-06T13:00:00+00:00'
+[2026-03-07T17:27:47.042+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-07T17:27:47.335+0000] {python.py:237} INFO - Done. Returned value was: UUX6OQ3DkcsbYNE6H8uQQuVA
+[2026-03-07T17:27:47.336+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-07T17:27:47.356+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=youtube_video_stats, task_id=get_playlist_id, run_id=scheduled__2026-03-06T13:00:00+00:00, execution_date=20260306T130000, start_date=20260307T172746, end_date=20260307T172747
+[2026-03-07T17:27:47.409+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-03-07T17:27:47.426+0000] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-07T17:27:47.427+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

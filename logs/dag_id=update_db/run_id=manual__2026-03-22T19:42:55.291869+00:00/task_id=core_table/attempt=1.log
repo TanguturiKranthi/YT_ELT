@@ -1,0 +1,62 @@
+[2026-03-22T19:42:57.201+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-22T19:42:57.214+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: update_db.core_table manual__2026-03-22T19:42:55.291869+00:00 [queued]>
+[2026-03-22T19:42:57.218+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: update_db.core_table manual__2026-03-22T19:42:55.291869+00:00 [queued]>
+[2026-03-22T19:42:57.218+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-22T19:42:57.225+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): core_table> on 2026-03-22 19:42:55.291869+00:00
+[2026-03-22T19:42:57.228+0000] {standard_task_runner.py:63} INFO - Started process 814 to run task
+[2026-03-22T19:42:57.230+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'update_db', 'core_table', 'manual__2026-03-22T19:42:55.291869+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/api/main.py', '--cfg-path', '/tmp/tmpnm17a3rf']
+[2026-03-22T19:42:57.231+0000] {standard_task_runner.py:91} INFO - Job 46: Subtask core_table
+[2026-03-22T19:42:57.256+0000] {task_command.py:426} INFO - Running <TaskInstance: update_db.core_table manual__2026-03-22T19:42:55.291869+00:00 [running]> on host 0f6d464e48ad
+[2026-03-22T19:42:57.297+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='tanguturi.kranthi1008@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='update_db' AIRFLOW_CTX_TASK_ID='core_table' AIRFLOW_CTX_EXECUTION_DATE='2026-03-22T19:42:55.291869+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-22T19:42:55.291869+00:00'
+[2026-03-22T19:42:57.297+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-22T19:42:57.301+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-03-22T19:42:57.304+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-03-22T19:42:57.307+0000] {base.py:84} INFO - Using connection ID 'postgres_db_yt_elt' for task execution.
+[2026-03-22T19:42:57.312+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : VwWV4JelEzY
+[2026-03-22T19:42:57.312+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : xWcldHxHFpo
+[2026-03-22T19:42:57.313+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : VXmKt_1T0QM
+[2026-03-22T19:42:57.313+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : HIhUkvAG0o4
+[2026-03-22T19:42:57.313+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : pGYyUssWLTA
+[2026-03-22T19:42:57.314+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : PRU47AuQF2M
+[2026-03-22T19:42:57.314+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : 6bxZpS0cm5o
+[2026-03-22T19:42:57.314+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : X_qd-1xSTFA
+[2026-03-22T19:42:57.315+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : LMe7k8I082w
+[2026-03-22T19:42:57.315+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : yyssjJEJMt4
+[2026-03-22T19:42:57.315+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : M82VAcabSiA
+[2026-03-22T19:42:57.316+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : 2XVcLrB7B3Y
+[2026-03-22T19:42:57.316+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : F0OkwXKcPSE
+[2026-03-22T19:42:57.316+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : BzKaMelDzqo
+[2026-03-22T19:42:57.317+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : XhuisK0bTSA
+[2026-03-22T19:42:57.317+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : bvlFjrcpD6s
+[2026-03-22T19:42:57.317+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : Hwybp38GnZw
+[2026-03-22T19:42:57.318+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : OAbP-V6fEVc
+[2026-03-22T19:42:57.318+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : 6wsFjjhZPJI
+[2026-03-22T19:42:57.318+0000] {data_modification.py:22} INFO - Inserted row with Video_Id : nywT2SenPIo
+[2026-03-22T19:42:57.318+0000] {dwh.py:100} ERROR - An error occurred while updating core table: unsupported operand type(s) for -: 'set' and 'list'
+[2026-03-22T19:42:57.319+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-22T19:42:57.319+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/datawarehouse/dwh.py", line 101, in core_table
+    raise e
+  File "/opt/airflow/dags/datawarehouse/dwh.py", line 91, in core_table
+    ids_to_delete = set(table_ids) - cur_video_ids
+TypeError: unsupported operand type(s) for -: 'set' and 'list'
+[2026-03-22T19:42:57.324+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=update_db, task_id=core_table, run_id=manual__2026-03-22T19:42:55.291869+00:00, execution_date=20260322T194255, start_date=20260322T194257, end_date=20260322T194257
+[2026-03-22T19:42:57.329+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 46 for task core_table (unsupported operand type(s) for -: 'set' and 'list'; 814)
+[2026-03-22T19:42:57.370+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-03-22T19:42:57.381+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-22T19:42:57.381+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

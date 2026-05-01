@@ -1,0 +1,150 @@
+[2026-03-26T10:32:22.599+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-26T10:32:22.613+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: data_quality.soda_check_staging manual__2026-03-26T10:32:21.946403+00:00 [queued]>
+[2026-03-26T10:32:22.617+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: data_quality.soda_check_staging manual__2026-03-26T10:32:21.946403+00:00 [queued]>
+[2026-03-26T10:32:22.617+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-26T10:32:22.623+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): soda_check_staging> on 2026-03-26 10:32:21.946403+00:00
+[2026-03-26T10:32:22.626+0000] {standard_task_runner.py:63} INFO - Started process 2040 to run task
+[2026-03-26T10:32:22.628+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'data_quality', 'soda_check_staging', 'manual__2026-03-26T10:32:21.946403+00:00', '--job-id', '66', '--raw', '--subdir', 'DAGS_FOLDER/api/main.py', '--cfg-path', '/tmp/tmpsq8b20ik']
+[2026-03-26T10:32:22.629+0000] {standard_task_runner.py:91} INFO - Job 66: Subtask soda_check_staging
+[2026-03-26T10:32:22.662+0000] {task_command.py:426} INFO - Running <TaskInstance: data_quality.soda_check_staging manual__2026-03-26T10:32:21.946403+00:00 [running]> on host c2229bc9173c
+[2026-03-26T10:32:22.705+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='tanguturi.kranthi1008@gmail.com' AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='data_quality' AIRFLOW_CTX_TASK_ID='soda_check_staging' AIRFLOW_CTX_EXECUTION_DATE='2026-03-26T10:32:21.946403+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-26T10:32:21.946403+00:00'
+[2026-03-26T10:32:22.705+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-26T10:32:22.706+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-03-26T10:32:22.707+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'soda scan -d pg_datasource -c /opt/airflow/include/soda/configuration.yaml -v SCHEMA= staging /opt/airflow/include/soda/checks.yaml']
+[2026-03-26T10:32:22.714+0000] {subprocess.py:86} INFO - Output:
+[2026-03-26T10:32:23.307+0000] {subprocess.py:93} INFO - [10:32:23] Soda Core 3.3.14
+[2026-03-26T10:32:23.321+0000] {subprocess.py:93} INFO - [10:32:23] Path "staging" does not exist
+[2026-03-26T10:32:23.354+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 3.pg_datasource.yt_api.aggregation[0]: relation "yt_api" does not exist
+[2026-03-26T10:32:23.354+0000] {subprocess.py:93} INFO - LINE 3: FROM yt_api
+[2026-03-26T10:32:23.354+0000] {subprocess.py:93} INFO -              ^
+[2026-03-26T10:32:23.354+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.354+0000] {subprocess.py:93} INFO - SELECT
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO -   COUNT(CASE WHEN "Video_Id" IS NULL THEN 1 END)
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - FROM yt_api
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO -   | LINE 3: FROM yt_api
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO -   |              ^
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 4.pg_datasource.yt_api."Video_Id".duplicate_count: relation "yt_api" does not exist
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - LINE 4:     FROM yt_api
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO -                  ^
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.355+0000] {subprocess.py:93} INFO - WITH frequencies AS (
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -     SELECT COUNT(*) AS frequency
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -     FROM yt_api
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -     WHERE "Video_Id" IS NOT NULL
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -     GROUP BY "Video_Id")
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO - SELECT COUNT(*)
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO - FROM frequencies
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO - WHERE frequency > 1
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -   | LINE 4:     FROM yt_api
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO -   |                  ^
+[2026-03-26T10:32:23.356+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 1.pg_datasource.user_defined_query[likes_count_greater_than_vid_views = 0]: relation "yt_api" does not exist
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Likes_Count" > "Video_Vie...
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO -                              ^
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - SELECT COUNT(*) FROM yt_api WHERE "Likes_Count" > "Video_Views"
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO -   | LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Likes_Count" > "Video_Vie...
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO -   |                              ^
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 2.pg_datasource.user_defined_query[comments_count_greater_than_vid_views = 0]: relation "yt_api" does not exist
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO - LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Comments_Count" > "Video_...
+[2026-03-26T10:32:23.357+0000] {subprocess.py:93} INFO -                              ^
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - SELECT COUNT(*) FROM yt_api WHERE "Comments_Count" > "Video_Views"
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO -   | LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Comments_Count" > "Video_...
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO -   |                              ^
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23] Metrics '"likes_count_greater_than_vid_views = 0"' were not computed for check 'likes_count_greater_than_vid_views = 0'
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23] Metrics '"comments_count_greater_than_vid_views = 0"' were not computed for check 'comments_count_greater_than_vid_views = 0'
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23] Metrics 'missing_count' were not computed for check 'missing_count("Video_Id") = 0'
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23] Metrics 'duplicate_count' were not computed for check 'duplicate_count("Video_Id") = 0'
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23] Scan summary:
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23] 4/4 checks NOT EVALUATED:
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23]     yt_api in pg_datasource
+[2026-03-26T10:32:23.358+0000] {subprocess.py:93} INFO - [10:32:23]       Check for Likes_Count greater than Video_Views [NOT EVALUATED]
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]         check_value: None
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]       Check for Comments_Count greater than Video_Views [NOT EVALUATED]
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]         check_value: None
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]       missing_count("Video_Id") = 0 [NOT EVALUATED]
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]         check_value: None
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]       duplicate_count("Video_Id") = 0 [NOT EVALUATED]
+[2026-03-26T10:32:23.359+0000] {subprocess.py:93} INFO - [10:32:23]         check_value: None
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - [10:32:23] 4 checks not evaluated.
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - [10:32:23] 9 errors.
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - [10:32:23] Oops! 9 errors. 0 failures. 0 warnings. 0 pass.
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - ERRORS:
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - [10:32:23] Path "staging" does not exist
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 3.pg_datasource.yt_api.aggregation[0]: relation "yt_api" does not exist
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - LINE 3: FROM yt_api
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO -              ^
+[2026-03-26T10:32:23.360+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO - SELECT
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO -   COUNT(CASE WHEN "Video_Id" IS NULL THEN 1 END)
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO - FROM yt_api
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO -   | LINE 3: FROM yt_api
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO -   |              ^
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 4.pg_datasource.yt_api."Video_Id".duplicate_count: relation "yt_api" does not exist
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO - LINE 4:     FROM yt_api
+[2026-03-26T10:32:23.361+0000] {subprocess.py:93} INFO -                  ^
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO - WITH frequencies AS (
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO -     SELECT COUNT(*) AS frequency
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO -     FROM yt_api
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO -     WHERE "Video_Id" IS NOT NULL
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO -     GROUP BY "Video_Id")
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO - SELECT COUNT(*)
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO - FROM frequencies
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO - WHERE frequency > 1
+[2026-03-26T10:32:23.362+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO -   | LINE 4:     FROM yt_api
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO -   |                  ^
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 1.pg_datasource.user_defined_query[likes_count_greater_than_vid_views = 0]: relation "yt_api" does not exist
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Likes_Count" > "Video_Vie...
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO -                              ^
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - SELECT COUNT(*) FROM yt_api WHERE "Likes_Count" > "Video_Views"
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO -   | LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Likes_Count" > "Video_Vie...
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO -   |                              ^
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - [10:32:23] Query execution error in 2.pg_datasource.user_defined_query[comments_count_greater_than_vid_views = 0]: relation "yt_api" does not exist
+[2026-03-26T10:32:23.363+0000] {subprocess.py:93} INFO - LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Comments_Count" > "Video_...
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO -                              ^
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - SELECT COUNT(*) FROM yt_api WHERE "Comments_Count" > "Video_Views"
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO -   | relation "yt_api" does not exist
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO -   | LINE 1: SELECT COUNT(*) FROM yt_api WHERE "Comments_Count" > "Video_...
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO -   |                              ^
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - 
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - [10:32:23] Metrics '"likes_count_greater_than_vid_views = 0"' were not computed for check 'likes_count_greater_than_vid_views = 0'
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - [10:32:23] Metrics '"comments_count_greater_than_vid_views = 0"' were not computed for check 'comments_count_greater_than_vid_views = 0'
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - [10:32:23] Metrics 'missing_count' were not computed for check 'missing_count("Video_Id") = 0'
+[2026-03-26T10:32:23.364+0000] {subprocess.py:93} INFO - [10:32:23] Metrics 'duplicate_count' were not computed for check 'duplicate_count("Video_Id") = 0'
+[2026-03-26T10:32:24.040+0000] {subprocess.py:97} INFO - Command exited with return code 3
+[2026-03-26T10:32:24.041+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-26T10:32:24.048+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 3.
+[2026-03-26T10:32:24.051+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=data_quality, task_id=soda_check_staging, run_id=manual__2026-03-26T10:32:21.946403+00:00, execution_date=20260326T103221, start_date=20260326T103222, end_date=20260326T103224
+[2026-03-26T10:32:24.059+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 66 for task soda_check_staging (Bash command failed. The command returned a non-zero exit code 3.; 2040)
+[2026-03-26T10:32:24.079+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-03-26T10:32:24.093+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-26T10:32:24.095+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
